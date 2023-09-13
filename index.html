@@ -61,11 +61,16 @@
         }
         function resultCalculate() {
             var x = document.getElementById('displayResult');
-            if((x.value).includes('.')) {
-                x.value = eval(x.value).toFixed(2);
+            try {
+                if((x.value).includes('.')) {
+                    x.value = eval(x.value).toFixed(2);
+                }
+                else {
+                    x.value = eval(x.value);
+                }
             }
-            else {
-                x.value = eval(x.value);
+            catch (err) {
+                x.value = err.message = 'Error';
             }
         }
     </script>
